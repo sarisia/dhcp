@@ -281,10 +281,10 @@ func (c *Client) receiveLoop() {
 		// This is a somewhat non-standard check, by the looks
 		// of RFC 2131. It should work as long as the DHCP
 		// server is spec-compliant for the HWAddr field.
-		if c.ifaceHWAddr != nil && !bytes.Equal(c.ifaceHWAddr, msg.ClientHWAddr) {
-			// Not for us.
-			continue
-		}
+		// if c.ifaceHWAddr != nil && !bytes.Equal(c.ifaceHWAddr, msg.ClientHWAddr) {
+		// 	// Not for us.
+		// 	continue
+		// }
 
 		c.pendingMu.Lock()
 		p, ok := c.pending[msg.TransactionID]
